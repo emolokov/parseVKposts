@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 
-function generateCodeVerifier() {
+export function generateCodeVerifier() {
     const length = Math.floor(Math.random() * (128 - 43 + 1)) + 43;
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
     let codeVerifier = '';
@@ -10,7 +10,7 @@ function generateCodeVerifier() {
     return codeVerifier;
 }
 
-function generateCodeChallenge(codeVerifier) {
+export function generateCodeChallenge(codeVerifier) {
     if (!codeVerifier) {
         throw new Error('codeVerifier is required');
     }
@@ -19,7 +19,7 @@ function generateCodeChallenge(codeVerifier) {
     return hashedCodeVerifier.toString('base64').replace(/=+$/, '');
 }
 
-function generateState() {
+export function generateState() {
     const length = Math.floor(Math.random() * (50 - 32 + 1)) + 32;
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-';
     let state = '';
@@ -29,7 +29,3 @@ function generateState() {
     return state;
 }
 
-const codeVerifier = generateCodeVerifier();
-console.log(codeVerifier);
-console.log(generateCodeChallenge(codeVerifier));
-console.log(generateState());

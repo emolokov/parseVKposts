@@ -1,4 +1,5 @@
 import express from 'express';
+import * as pkce from './pkce.js'
 
 // const client_id = 52227698
 // const scope = "groups friends"
@@ -10,11 +11,25 @@ const app = express()
 async function main() {
     app.use(express.json());
 
-    app.get('/', (req, res) => {
+    app.get('/api', (req, res) => {
         res
             .json({
                 message: 'success'
-            }).status(200)
+            })
+    })
+
+    app.get('/api/pkce', (req, res) => {
+        const CodeVerifier = pkce.generateCodeVerifier();
+        const CodeChallenge = pkce.generateCodeChallenge(CodeVerifier);
+        const State = pkce.generateState();
+
+
+        res
+            .json({
+                code_verifier: CodeVerifier,
+                code_challenge: CodeChallenge,
+                state: State
+            })
     })
 
     app.listen(4200, () => {
