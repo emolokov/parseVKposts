@@ -3,17 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@vkid/sdk": "^2.3.2",
-    "express": "^4.21.0",
-    "nodemon": "^3.1.4"
-  }
+  "license": "ISC"
 }
