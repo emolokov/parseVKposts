@@ -17,8 +17,8 @@ async function main() {
             }).status(200)
     })
 
-    app.listen(5683, () => {
-        console.log('Server is running on port 5683')
+    app.listen(4200, () => {
+        console.log('Server is running on port 4200')
     })
 
 

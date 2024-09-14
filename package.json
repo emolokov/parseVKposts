@@ -10,5 +10,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "crypto": "^1.0.1",
+    "node-crypto": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "parcel": "^2.12.0"
+  }
 }
